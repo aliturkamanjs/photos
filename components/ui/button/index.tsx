@@ -2,12 +2,12 @@ import clsx from "clsx"
 import { memo } from "react"
 
 interface ButtonTypes {
-  lable?: string
+  label?: string
   size?: "xs" | "sm" | "md" | "lg" | "xl"
   rest?: any
 }
 
-const Button = ({ lable, size, ...rest }: ButtonTypes) => {
+const Button = ({ label, size, ...rest }: ButtonTypes) => {
   return (
     <button
       className={clsx(
@@ -26,7 +26,7 @@ const Button = ({ lable, size, ...rest }: ButtonTypes) => {
       )}
       {...rest}
     >
-      {lable}
+      {label}
     </button>
   )
 }

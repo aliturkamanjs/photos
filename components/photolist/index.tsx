@@ -1,5 +1,7 @@
+import Masonry from 'react-masonry-css'
 import { useQuery } from 'react-query'
 import { getData } from '../../services'
+import { Card } from './card'
 
 export const getStaticProps = async () => {
   const data = await getData()
@@ -17,7 +19,8 @@ const PhotoList = (props: any): JSX.Element => {
     refetchOnWindowFocus: false,
   })
   console.log(data)
-  return <div>PhotoList</div>
+
+  return <Card data={data} />
 }
 
 export default PhotoList

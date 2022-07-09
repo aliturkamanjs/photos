@@ -1,4 +1,5 @@
-import { memo } from "react"
+import { memo } from 'react'
+import { CgProfile } from 'react-icons/cg'
 
 interface AvatarTypes {
   src?: string
@@ -7,8 +8,12 @@ interface AvatarTypes {
 
 const Avatar = ({ src, name }: AvatarTypes) => {
   return (
-    <div className="w-9 h-9 border-slate-900 border-[1px]  rounded-full bg-sky-300 flex items-center justify-center overflow-hidden">
-      {src ? <img src={src} alt={name} /> : name}
+    <div className="w-9 h-9 border-slate-900 border-[1px]  rounded-full bg-slate-800 flex items-center justify-center overflow-hidden">
+      {src ? (
+        <img src={src} alt={name} />
+      ) : (
+        <CgProfile className="w-full h-full text-slate-400" />
+      )}
     </div>
   )
 }

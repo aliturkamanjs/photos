@@ -1720,6 +1720,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-masonry-css@^1.0.16":
+  "integrity" "sha512-KSW0hR2VQmltt/qAa3eXOctQDyOu7+ZBevtKgpNDSzT7k5LA/0XntNa9z9HKCdz3QlxmJHglTZ18e4sX4V8zZQ=="
+  "resolved" "https://registry.npmjs.org/react-masonry-css/-/react-masonry-css-1.0.16.tgz"
+  "version" "1.0.16"
+
 "react-query@^3.39.1":
   "integrity" "sha512-qYKT1bavdDiQZbngWZyPotlBVzcBjDYEJg5RQLBa++5Ix5jjfbEYJmHSZRZD+USVHUSvl/ey9Hu+QfF1QAK80A=="
   "resolved" "https://registry.npmjs.org/react-query/-/react-query-3.39.1.tgz"
@@ -1729,7 +1734,7 @@
     "broadcast-channel" "^3.4.1"
     "match-sorter" "^6.0.2"
 
-"react@*", "react@^16 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@18.2.0":
+"react@*", "react@^16 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16.0.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
