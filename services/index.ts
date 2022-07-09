@@ -13,4 +13,9 @@ const getAllData = async () => {
   return data
 }
 
-export { getAllData }
+const getSearchData = async (query: any) => {
+  const { data } = await client.get(`/search/photos?page=1&query=${query}`)
+  return data
+}
+
+export { getAllData, getSearchData }

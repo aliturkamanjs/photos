@@ -1,7 +1,14 @@
-import type { NextPage } from "next"
-import Input from "./ui/input"
+import type { NextPage } from 'next'
+import { useState } from 'react'
+import { useSearch } from '../hooks/useSearch'
+import Input from './ui/input'
 
 export const Header: NextPage = () => {
+  const [searchQuery, setSearchQuery] = useState('')
+  const { data } = useSearch(searchQuery === '' ? undefined : searchQuery)
+
+  console.log(data)
+
   return (
     <div>
       <div className="w-full h-96 my-6 rounded-lg flex flex-col items-center justify-around relative overflow-hidden">
@@ -18,7 +25,10 @@ export const Header: NextPage = () => {
               </p>
             </div>
             <div>
-              <Input placeholder="Search free high-resolution photos" />
+              <Input
+                placeholder="Search free high-resolution photos"
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
               <div className="flex text-left text-white text-sm mt-2">
                 <p>Trending:</p>
                 <p className="text-slate-300 ml-2">

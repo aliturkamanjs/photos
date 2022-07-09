@@ -1,4 +1,4 @@
-import { dehydrate, QueryClient, useQuery } from 'react-query'
+import { dehydrate, QueryCache, QueryClient, useQuery } from 'react-query'
 import { usePhotos } from '../../hooks/usePhotos'
 import { getAllData } from '../../services'
 import { Card } from './card'
