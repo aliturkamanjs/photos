@@ -27,6 +27,7 @@ export const Navigation = () => {
         <Avatar
           src="https://avatars.githubusercontent.com/u/79016171?s=400&u=23eea2ca6ef0669dd1543b65dc4224d0b2e1d358&v=4"
           name="ali turkmaman"
+          border={true}
         />
       </div>
     </div>
