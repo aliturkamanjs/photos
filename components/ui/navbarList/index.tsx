@@ -1,4 +1,4 @@
-import { memo } from "react"
+import { memo } from 'react'
 
 interface NavbarTypes {
   items?: { name: string; id: number; link?: string }[]
@@ -12,10 +12,10 @@ interface ItemTypes {
 
 const NanbarList = ({ items }: NavbarTypes) => {
   return (
-    <ul className="flex">
+    <ul className="flex space-x-6">
       {items?.map((item: ItemTypes) => (
-        <li className="mx-2 cursor-pointer text-[15px]" key={item.id}>
-          <a href={item.link ? item.link : "#"}>{item.name}</a>
+        <li className="ml-3 cursor-pointer text-[15px]" key={item.id}>
+          <a href={item.link ? item.link : '#'}>{item.name}</a>
         </li>
       ))}
     </ul>
