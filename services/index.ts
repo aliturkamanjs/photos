@@ -8,9 +8,9 @@ const client = axios.create({
   },
 })
 
-const getData = async () => {
+const getAllData = async () => {
   const { data } = await client.get('/photos')
   return data
 }
 
-export { getData }
+export { getAllData }
