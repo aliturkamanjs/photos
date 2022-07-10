@@ -1,15 +1,15 @@
-import React, { memo } from 'react'
+import React, { LegacyRef, memo } from 'react'
 import { BsSearch } from 'react-icons/bs'
 
 interface InputTypes {
   placeholder?: string
   type?: string
   rest?: any
-  ref?: any
+  ref?: LegacyRef<HTMLInputElement> | undefined
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input = ({ placeholder, type,ref, onChange, ...rest }: InputTypes) => {
+const Input = ({ placeholder, type, ref, onChange, ...rest }: InputTypes) => {
   return (
     <div className="relative flex items-center">
       <input

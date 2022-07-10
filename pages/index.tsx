@@ -1,9 +1,14 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
+import { useState } from 'react'
 import { Header } from '../components/header'
+import { useSearch } from '../hooks/useSearch'
 import PhotoList from '../components/photolist'
+import Head from 'next/head'
 
 const Home: NextPage = () => {
+  const [searchQuery, setSearchQuery] = useState<string>('random')
+  const { data, refetch } = useSearch(searchQuery)
+
   return (
     <div>
       <Head>
@@ -12,8 +17,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-      <PhotoList />
+      <Header setSearchQuery={setSearchQuery} refetch={refetch} />
+      <PhotoList data={data} />
     </div>
   )
 }

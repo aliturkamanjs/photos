@@ -1,14 +1,11 @@
-import type { NextPage } from 'next'
-import { useState } from 'react'
-import { useSearch } from '../hooks/useSearch'
 import Input from './ui/input'
 
-export const Header: NextPage = () => {
-  const [searchQuery, setSearchQuery] = useState('')
-  const { data } = useSearch(searchQuery === '' ? undefined : searchQuery)
+interface HeaderProps {
+  setSearchQuery: (query: string) => void
+  refetch: () => void
+}
 
-  console.log(data)
-
+export const Header = ({ setSearchQuery, refetch }: HeaderProps) => {
   return (
     <div>
       <div className="w-full h-96 my-6 rounded-lg flex flex-col items-center justify-around relative overflow-hidden">
@@ -27,7 +24,10 @@ export const Header: NextPage = () => {
             <div>
               <Input
                 placeholder="Search free high-resolution photos"
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value)
+                  refetch()
+                }}
               />
               <div className="flex text-left text-white text-sm mt-2">
                 <p>Trending:</p>

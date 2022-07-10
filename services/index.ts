@@ -13,7 +13,7 @@ const getAllData = async () => {
   return data
 }
 
-const getSearchData = async (query: any) => {
+const getSearchData = async (query: string) => {
   const { data } = await client.get(`/search/photos?page=1&query=${query}`)
   return data
 }

@@ -1,9 +1,20 @@
-import { dehydrate, QueryCache, QueryClient, useQuery } from 'react-query'
+import { useEffect, useState } from 'react'
+import {
+  dehydrate,
+  MutationCache,
+  QueryClient,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from 'react-query'
 import { usePhotos } from '../../hooks/usePhotos'
 import { getAllData } from '../../services'
 import { Skeleton } from '../ui/skeleton'
-import { Spinner } from '../ui/spinner'
 import { Card } from './card'
+
+interface dataTypes {
+  data: { total: number; total_pages: number; results: [] }
+}
 
 export const getStaticProps = async () => {
   const queryClient = new QueryClient()
@@ -16,8 +27,8 @@ export const getStaticProps = async () => {
   }
 }
 
-const PhotoList = (): JSX.Element => {
-  const { data, isLoading, error } = usePhotos()
+const PhotoList = ({ data }: dataTypes): JSX.Element => {
+  const { data: photos, isLoading, error } = usePhotos()
 
   if (isLoading) {
     return (
@@ -30,7 +41,7 @@ const PhotoList = (): JSX.Element => {
   }
   if (error) return <div>error - try again</div>
 
-  return <Card data={data} />
+  return <Card data={data?.results} />
 }
 
 export default PhotoList

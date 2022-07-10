@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 import { getSearchData } from '../../services'
 
-export const useSearch = (query: any) => {
-  return useQuery('search', () => getSearchData(query))
+export const useSearch = (query: string) => {
+  return useQuery(['search', query], () => getSearchData(query))
 }
