@@ -1,5 +1,5 @@
-import React, { memo } from "react"
-import { BsSearch } from "react-icons/bs"
+import React, { memo } from 'react'
+import { BsSearch } from 'react-icons/bs'
 
 interface InputTypes {
   placeholder?: string
