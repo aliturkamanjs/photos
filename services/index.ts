@@ -9,7 +9,7 @@ const client = axios.create({
 })
 
 const getAllData = async () => {
-  const { data } = await client.get('/photos')
+  const { data } = await client.get('/photos?page=1&per_page=30')
   return data
 }
 

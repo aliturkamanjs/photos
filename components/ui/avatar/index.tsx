@@ -6,14 +6,26 @@ interface AvatarTypes {
   src?: string
   name?: string
   border?: boolean
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 }
 
-const Avatar = ({ src, name, border }: AvatarTypes) => {
+const Avatar = ({ src, name, border, size }: AvatarTypes) => {
   return (
     <div
       className={clsx(
-        'w-9 h-9 border-slate-900 rounded-full flex items-center justify-center overflow-hidden',
-        border ? 'border-[1px] bg-slate-800' : ''
+        'border-slate-900 rounded-full flex items-center justify-center overflow-hidden',
+        border ? 'border-[1px] bg-slate-800' : '',
+        size === 'sm'
+          ? 'h-4 w-4'
+          : size === 'md'
+          ? 'w-6 h-6'
+          : size === 'lg'
+          ? 'w-9 h-9'
+          : size === 'xl'
+          ? 'w-14 h-14'
+          : size === '2xl'
+          ? 'w-16 h-16'
+          : 'w-9 h-9'
       )}
     >
       {src ? (
