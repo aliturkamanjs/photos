@@ -12,6 +12,7 @@ import { BsCalendarDate } from 'react-icons/bs'
 import moment from 'moment'
 import { Divider } from '../ui/divider'
 import DetailItems from '../ui/detailItems'
+import Link from 'next/link'
 
 export const Card = ({ data }: dataProps): JSX.Element => {
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -42,20 +43,25 @@ export const Card = ({ data }: dataProps): JSX.Element => {
           alt=""
         />
         <div className="flex items-center justify-between pt-5">
-          <div className="flex items-center space-x-2">
-            <Avatar
-              src={itemDetailValue?.user?.profile_image?.medium}
-              size="2xl"
-            />
-            <div>
-              <h3 className="text-lg font-semibold text-slate-800">
-                {itemDetailValue?.user?.name}
-              </h3>
-              <p className="text-sm text-slate-600 font-light">
-                @{itemDetailValue?.user?.username}
-              </p>
+          <Link href={`/profile/${itemDetailValue?.user?.username}`}>
+            <div
+              className="flex items-center space-x-2 cursor-pointer"
+              title="View Profile"
+            >
+              <Avatar
+                src={itemDetailValue?.user?.profile_image?.medium}
+                size="2xl"
+              />
+              <div>
+                <h3 className="text-lg font-semibold text-slate-800">
+                  {itemDetailValue?.user?.name}
+                </h3>
+                <p className="text-sm text-slate-600 font-light">
+                  @{itemDetailValue?.user?.username}
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
           <a
             className=" outline-none"
             download
@@ -131,10 +137,12 @@ export const Card = ({ data }: dataProps): JSX.Element => {
               }}
             />
             <div className="flex z-10 group-hover:translate-y-0 group-hover:delay-200 transition translate-y-20 items-center justify-between absolute bottom-3 rounded-full w-[90%] bg-slate-800 bg-opacity-40 backdrop-blur-md">
-              <div className="flex items-center cursor-pointer">
-                <Avatar src={item?.user?.profile_image?.medium} />
-                <p className="text-white text-sm ml-3">{item?.user?.name}</p>
-              </div>
+              <Link href={`/profile/${item?.user?.username}`}>
+                <div className="flex items-center cursor-pointer">
+                  <Avatar src={item?.user?.profile_image?.medium} />
+                  <p className="text-white text-sm ml-3">{item?.user?.name}</p>
+                </div>
+              </Link>
               <a
                 className="flex items-center text-md cursor-pointer justify-center text-slate-50 rounded-full w-9 h-9 "
                 download

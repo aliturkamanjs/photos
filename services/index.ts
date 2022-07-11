@@ -14,8 +14,15 @@ const getAllData = async () => {
 }
 
 const getSearchData = async (query: string) => {
-  const { data } = await client.get(`/search/photos?page=1&query=${query}`)
+  const { data } = await client.get(
+    `/search/photos?page=1&per_page=30&query=${query}`
+  )
   return data
 }
 
-export { getAllData, getSearchData }
+const getProfileData = async (username: any) => {
+  const { data } = await client.get(`/users/${username?.queryKey[1]}`)
+  return data
+}
+
+export { getAllData, getSearchData, getProfileData }

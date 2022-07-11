@@ -4,7 +4,6 @@ import { BsSearch } from 'react-icons/bs'
 interface InputTypes {
   placeholder?: string
   type?: string
-  rest?: any
   ref?: LegacyRef<HTMLInputElement> | undefined
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { memo } from 'react'
 
 interface NavbarTypes {
@@ -15,7 +16,7 @@ const NanbarList = ({ items }: NavbarTypes) => {
     <ul className="flex space-x-6">
       {items?.map((item: ItemTypes) => (
         <li className="ml-3 cursor-pointer text-[15px]" key={item.id}>
-          <a href={item.link ? item.link : '#'}>{item.name}</a>
+          <Link href={item?.link ? item?.link : '/'}>{item.name}</Link>
         </li>
       ))}
     </ul>

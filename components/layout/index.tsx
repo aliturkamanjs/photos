@@ -4,7 +4,7 @@ import { Navigation } from "./navigation"
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="max-w-7xl min-h-screen mx-auto">
+    <div className="max-w-7xl min-h-screen mx-auto relative pb-16">
       <Navigation />
       {children}
       <Footer />

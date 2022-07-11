@@ -5,7 +5,19 @@ interface HeaderProps {
   refetch: () => void
 }
 
+interface categoryProps {
+  title: string
+  id: number
+}
+
 export const Header = ({ setSearchQuery, refetch }: HeaderProps) => {
+  const categories = [
+    { title: 'flower', id: 1 },
+    { title: 'macbook', id: 2 },
+    { title: 'guitar', id: 3 },
+    { title: 'keyboard', id: 4 },
+  ]
+
   return (
     <div>
       <div className="w-full h-96 my-6 rounded-lg flex flex-col items-center justify-around relative overflow-hidden">
@@ -31,9 +43,17 @@ export const Header = ({ setSearchQuery, refetch }: HeaderProps) => {
               />
               <div className="flex text-left text-white text-sm mt-2">
                 <p>Trending:</p>
-                <p className="text-slate-300 ml-2">
-                  flower, wallpaper, sbackgrounds, happy, love
-                </p>
+                {categories.map((item: categoryProps) => {
+                  return (
+                    <p
+                      onClick={() => setSearchQuery(item?.title)}
+                      className="text-slate-300 ml-2 cursor-pointer"
+                      key={item.id}
+                    >
+                      {item.title},
+                    </p>
+                  )
+                })}
               </div>
             </div>
           </div>

@@ -11,7 +11,7 @@ export const Footer = () => {
   ]
 
   return (
-    <div className="flex justify-between items-center px-3">
+    <div className="flex justify-between items-center px-3 absolute bottom-5 left-0 right-0">
       <div className="flex items-center">
         <Image
           alt="logo"
