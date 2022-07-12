@@ -6,7 +6,7 @@ import PhotoList from '../components/photolist'
 import Head from 'next/head'
 
 const Home: NextPage = () => {
-  const [searchQuery, setSearchQuery] = useState<string>('random')
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const { data, refetch } = useSearch(searchQuery)
 
   return (

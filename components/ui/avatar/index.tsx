@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { memo } from 'react'
-import { CgProfile } from 'react-icons/cg'
 
 interface AvatarTypes {
   src?: string
@@ -13,7 +12,7 @@ const Avatar = ({ src, name, border, size }: AvatarTypes) => {
   return (
     <div
       className={clsx(
-        'border-slate-900 rounded-full flex items-center justify-center overflow-hidden',
+        'border-slate-900 rounded-full flex items-center justify-center overflow-hidden ',
         border ? 'border-[1px] bg-slate-800' : '',
         size === 'sm'
           ? 'h-4 w-4'

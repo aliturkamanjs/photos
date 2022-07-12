@@ -1,6 +1,8 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, ReactNode } from 'react'
 
+import { GrClose } from 'react-icons/gr'
+
 interface ModalTypes {
   isOpen: boolean
   children: ReactNode
@@ -41,8 +43,12 @@ export default function Modal(props: ModalTypes) {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all">
-
-                  <div className='5xl'>{children}</div>
+                  <div className="5xl">
+                    <div className="mb-3 items-center justify-end flex sm:hidden">
+                      <GrClose onClick={closeModal} className="" />
+                    </div>
+                    {children}
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

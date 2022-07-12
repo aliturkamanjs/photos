@@ -9,24 +9,47 @@ import { HiOutlineDownload } from 'react-icons/hi'
 import { RiMapPinLine } from 'react-icons/ri'
 import { MdOutlineGppGood } from 'react-icons/md'
 import { BsCalendarDate } from 'react-icons/bs'
+
+import Divider from '../ui/divider'
 import moment from 'moment'
-import { Divider } from '../ui/divider'
 import DetailItems from '../ui/detailItems'
 import Link from 'next/link'
 
 export const Card = ({ data }: dataProps): JSX.Element => {
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
   const [itemDetailValue, setItemDetailValue] = useState<any>([])
   const [getId, setId] = useState<string | undefined>('')
+  const [windowWidth, setWindowWidth] = useState<number>(0)
+  let getWidth = window.innerWidth
 
   useEffect(() => {
     const filterdData = data?.filter((item: itemProps) => item.id === getId)
     setItemDetailValue(filterdData?.[0])
   }, [getId])
 
+  useEffect(() => {
+    if (getWidth > 768) {
+      setWindowWidth(3)
+    } else if (getWidth > 476) {
+      setWindowWidth(2)
+    } else {
+      setWindowWidth(1)
+    }
+  }, [getWidth])
+
+  window.addEventListener('resize', () => {
+    if (getWidth > 768) {
+      setWindowWidth(3)
+    } else if (getWidth > 476) {
+      setWindowWidth(2)
+    } else {
+      setWindowWidth(1)
+    }
+  })
+
   return (
     <Masonry
-      breakpointCols={3}
+      breakpointCols={windowWidth}
       className="my-masonry-grid"
       columnClassName="my-masonry-grid_column"
     >
@@ -34,6 +57,7 @@ export const Card = ({ data }: dataProps): JSX.Element => {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={itemDetailValue?.urls?.regular}
+          loading="lazy"
           className={clsx(
             'rounded-xl mx-auto',
             itemDetailValue?.height <= 5000 && itemDetailValue?.width >= 5000
@@ -63,7 +87,7 @@ export const Card = ({ data }: dataProps): JSX.Element => {
             </div>
           </Link>
           <a
-            className=" outline-none"
+            className="outline-none hidden sm:block"
             download
             title="Download photo"
             target="blank"
@@ -123,14 +147,16 @@ export const Card = ({ data }: dataProps): JSX.Element => {
       {data?.map((item: any) => {
         return (
           <div
+            style={{ minHeight: '200px' }}
             key={item?.id}
-            className="relative flex justify-center overflow-hidden group"
+            className="relative flex justify-center overflow-hidden group shadow-lg min-h-fit bg-slate-200 rounded-lg"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={item?.urls?.small}
-              className="rounded-lg w-full cursor-zoom-in"
+              className="w-full cursor-zoom-in"
               alt="image"
+              loading="lazy"
               onClick={() => {
                 setIsOpenModal(true)
                 setId(item?.id)
@@ -144,7 +170,7 @@ export const Card = ({ data }: dataProps): JSX.Element => {
                 </div>
               </Link>
               <a
-                className="flex items-center text-md cursor-pointer justify-center text-slate-50 rounded-full w-9 h-9 "
+                className="hidden sm:flex items-center text-md cursor-pointer justify-center text-slate-50 rounded-full w-9 h-9 "
                 download
                 title="Download photo"
                 target="blank"

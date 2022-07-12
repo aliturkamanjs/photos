@@ -13,9 +13,12 @@ interface ItemTypes {
 
 const NanbarList = ({ items }: NavbarTypes) => {
   return (
-    <ul className="flex space-x-6">
+    <ul className="flex sm:space-x-6 space-x-3">
       {items?.map((item: ItemTypes) => (
-        <li className="ml-3 cursor-pointer text-[15px]" key={item.id}>
+        <li
+          className="cursor-pointer text-[12px] sm:text-[15px] "
+          key={item.id}
+        >
           <Link href={item?.link ? item?.link : '/'}>{item.name}</Link>
         </li>
       ))}

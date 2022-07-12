@@ -1,6 +1,6 @@
 const Skeleton = (): JSX.Element => {
   return (
-    <div className="shadow rounded-xl max-w-[415px] w-full mx-auto">
+    <div className="shadow rounded-xl sm:w-[415px] w-full mx-auto mb-5 sm:mb-0 my-4">
       <div className="animate-pulse flex">
         <div className="flex-1">
           <div className="h-64 bg-slate-200 rounded relative">
@@ -21,8 +21,8 @@ const ProfileSkeleton = (): JSX.Element => {
   return (
     <div className="shadow rounded-xl w-full">
       <div className="animate-pulse flex p-4 m-4">
-        <div className="flex w-full justify-between">
-          <div className="flex">
+        <div className="flex-col sm:flex-row md:flex lg:flex xl:flex w-full justify-between">
+          <div className="flex ">
             <div className="w-40 h-40 bg-slate-200 mr-4 rounded-3xl"></div>
             <div className="flex flex-col">
               <div className="w-28 h-6 bg-slate-200 rounded-full"></div>
@@ -35,7 +35,7 @@ const ProfileSkeleton = (): JSX.Element => {
             </div>
           </div>
           <div>
-            <div className="w-28 h-4 bg-slate-200 rounded-full"></div>
+            <div className="w-28 h-4 bg-slate-200 rounded-full mt-5 sm:mt-0"></div>
             <div className="w-20 h-4 bg-slate-200 rounded-full mt-4"></div>
             <div className="flex flex-wrap w-44 justify-start">
               <div className="w-20 h-6 bg-slate-200 rounded-md mt-4 mr-2"></div>

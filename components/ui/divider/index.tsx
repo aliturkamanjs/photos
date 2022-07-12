@@ -1,10 +1,11 @@
 import clsx from 'clsx'
+import { memo } from 'react'
 
 interface dividerTypes {
   height?: 'xs' | 'sm' | 'md'
 }
 
-export const Divider = ({ height }: dividerTypes): JSX.Element => {
+const Divider = ({ height }: dividerTypes): JSX.Element => {
   return (
     <div
       className={clsx(
@@ -21,3 +22,5 @@ export const Divider = ({ height }: dividerTypes): JSX.Element => {
     ></div>
   )
 }
+
+export default memo(Divider)

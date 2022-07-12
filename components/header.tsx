@@ -12,23 +12,23 @@ interface categoryProps {
 
 export const Header = ({ setSearchQuery, refetch }: HeaderProps) => {
   const categories = [
-    { title: 'flower', id: 1 },
-    { title: 'macbook', id: 2 },
-    { title: 'guitar', id: 3 },
-    { title: 'keyboard', id: 4 },
+    { title: 'Nature', id: 1 },
+    { title: 'Wallpapers', id: 2 },
+    { title: 'Travel', id: 3 },
+    { title: 'Minimal', id: 4 },
   ]
 
   return (
     <div>
-      <div className="w-full h-96 my-6 rounded-lg flex flex-col items-center justify-around relative overflow-hidden">
+      <div className="w-full h-96 my-6 xl:rounded-lg rounded-none flex flex-col items-center justify-around relative overflow-hidden">
         <div className="flex items-center justify-center absolute inset-0 bg-[#18181885] backdrop-blur-lg">
-          <div className="h-full flex flex-col w-7/12 text-center justify-around">
+          <div className="h-full flex flex-col w-full sm:w-7/12 px-5 sm:px-0 text-center justify-evenly">
             <div>
-              <p className="text-[35px] font-medium text-white">
+              <p className="lg:text-[35px] text-[20px] font-medium text-white">
                 The internet’s source of freely-usable images Powered by
                 creators everywhere.
               </p>
-              <p className="mt-2 text-sm text-slate-300">
+              <p className="mt-2 text-xs sm:text-sm text-slate-300">
                 It is a long established fact that a reader will be distracted
                 by the readable
               </p>
@@ -42,15 +42,15 @@ export const Header = ({ setSearchQuery, refetch }: HeaderProps) => {
                 }}
               />
               <div className="flex text-left text-white text-sm mt-2">
-                <p>Trending:</p>
+                <p className="hidden sm:block">Trending:</p>
                 {categories.map((item: categoryProps) => {
                   return (
                     <p
                       onClick={() => setSearchQuery(item?.title)}
-                      className="text-slate-300 ml-2 cursor-pointer"
+                      className="text-slate-300 ml-2 cursor-pointer hidden sm:block"
                       key={item.id}
                     >
-                      {item.title},
+                      {item.title} {categories.length - 0 !== item.id && ','}
                     </p>
                   )
                 })}

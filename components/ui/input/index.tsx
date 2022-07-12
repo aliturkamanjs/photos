@@ -8,7 +8,7 @@ interface InputTypes {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input = ({ placeholder, type, ref, onChange, ...rest }: InputTypes) => {
+const Input = ({ placeholder, type, ref, onChange }: InputTypes) => {
   return (
     <div className="relative flex items-center">
       <input
@@ -16,10 +16,9 @@ const Input = ({ placeholder, type, ref, onChange, ...rest }: InputTypes) => {
         placeholder={placeholder}
         onChange={onChange}
         ref={ref}
-        className="p-2 w-full h-9 bg-[#f8fafdae] rounded-lg outline-none font-noraml placeholder:text-slate-800 text-sm"
-        {...rest}
+        className="p-2 w-full h-9 bg-[#f8fafdae] sm:text-sm rounded-lg outline-none font-noraml placeholder:text-slate-800 text-xs"
       />
-      <BsSearch className="absolute right-2" />
+      <BsSearch className="absolute right-2 hidden sm:block" />
     </div>
   )
 }

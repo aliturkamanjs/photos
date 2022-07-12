@@ -8,20 +8,44 @@ import { GiEarthAmerica } from 'react-icons/gi'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 import { MdOutlinePhotoLibrary, MdVerified } from 'react-icons/md'
 import Masonry from 'react-masonry-css'
-import { Divider } from '../ui/divider'
+import  Divider  from '../ui/divider'
+import { useEffect, useState } from 'react'
 
 export function UserProfile({ user }: userProps) {
+  const [windowWidth, setWindowWidth] = useState<number>(0)
+  let getWidth = window.innerWidth
+
+  window.addEventListener('resize', () => {
+    if (getWidth > 768) {
+      setWindowWidth(3)
+    } else if (getWidth > 476) {
+      setWindowWidth(2)
+    } else {
+      setWindowWidth(1)
+    }
+  })
+
+  useEffect(() => {
+    if (getWidth > 768) {
+      setWindowWidth(3)
+    } else if (getWidth > 476) {
+      setWindowWidth(2)
+    } else {
+      setWindowWidth(1)
+    }
+  }, [getWidth])
+
   return (
     <div className="w-full flex flex-col ">
-      <div className="flex justify-between">
-        <div className="flex">
+      <div className="flex-col sm:flex-row md:flex lg:flex xl:flex justify-between">
+        <div className="flex flex-col sm:flex-row items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={user?.profile_image?.large}
             alt=""
             className="w-48 h-48 rounded-[45px] object-cover mr-4"
           />
-          <div className="pl-1 w-4/6">
+          <div className="pl-1 w-full text-center sm:text-left sm:w-4/6 mt-4 sm:mt-0">
             <h1 className="text-4xl font-semibold">
               {user?.first_name} {` `} {user?.last_name}
             </h1>
@@ -31,7 +55,7 @@ export function UserProfile({ user }: userProps) {
             <Button label="Message" size="xs" padding="md" outline={true} />
           </div>
         </div>
-        <div className="w-[25%] flex flex-col items-end">
+        <div className="md:w-[25%] w-full px-4 flex flex-col items-center mt-4 md:mt-0">
           <div>
             {user?.for_hire ? (
               <ProfileOptions
@@ -124,7 +148,7 @@ export function UserProfile({ user }: userProps) {
       </div>
       <div className="mt-4">
         <Masonry
-          breakpointCols={3}
+          breakpointCols={windowWidth}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >

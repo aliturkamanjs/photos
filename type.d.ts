@@ -79,7 +79,6 @@ type userProps = {
       self?: string
       html?: string
       photos?: string
-      likes?: 'https://api.unsplash.com/users/ajeetmestry/likes'
       portfolio?: string
     }
     location?: string
@@ -133,4 +132,51 @@ type photosProps = {
     small_s3?: string
     thumb?: string
   }
+}
+
+type usePhotosProps = {
+  refetch?: () => void
+  data?: any
+  isLoading?: boolean | null
+  error?: unknown[string]
+}
+
+type useProfileProps = {
+  data?: profileDataProps
+  isLoading?: boolean | null
+  error?: unknown[string]
+}
+
+type profileDataProps = {
+  bio?: string
+  downloads?: number
+  first_name?: string
+  for_hire?: boolean
+  id?: string
+  instagram_username?: string
+  last_name?: string
+  links?: {
+    self?: string
+    html?: string
+    photos?: string
+    portfolio?: string
+  }
+  location?: string
+  name?: string
+  numeric_id?: number
+  photos?: {}[]
+  portfolio_url?: null | string
+  profile_image?: { small?: string; medium?: string; large?: string }
+  social?: {
+    instagram_username?: string
+    portfolio_url?: null | stirng
+    twitter_username?: null | string
+    paypal_email?: undefined | string
+  }
+  tags?: { custom?: Array; aggregated?: Array }
+  total_collections?: number
+  total_likes?: number
+  total_photos?: number
+  twitter_username?: null | string
+  username?: string
 }
